@@ -1,0 +1,894 @@
+{
+  "id": "prompt-studio-suite-v3",
+  "revision": 0,
+  "last_node_id": 220,
+  "last_link_id": 435,
+  "nodes": [
+    {
+      "id": 102,
+      "type": "LoadImage",
+      "pos": [
+        -980,
+        -90
+      ],
+      "size": [
+        340,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            403,
+            404,
+            421
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "title": "Reference Image Input",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "LoadImage",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Batman_00029.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "Batman_00029.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 108,
+      "type": "AspectRatioDetector",
+      "pos": [
+        -980,
+        270
+      ],
+      "size": [
+        340,
+        150
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 421
+        }
+      ],
+      "outputs": [
+        {
+          "name": "aspect_ratio_str",
+          "type": "STRING",
+          "links": [
+            422,
+            423
+          ]
+        },
+        {
+          "name": "target_width",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "name": "target_height",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "name": "raw_ratio",
+          "type": "FLOAT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AspectRatioDetector",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        0.3,
+        32
+      ],
+      "widgets_values_named": {
+        "target_megapixels": 0.3,
+        "multiple_of": 32
+      },
+      "color": "#1f4068",
+      "bgcolor": "#162447"
+    },
+    {
+      "id": 109,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -980,
+        460
+      ],
+      "size": [
+        340,
+        90
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 423
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "Detected Aspect Ratio",
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "2:3 (Classic Portrait)"
+      ],
+      "widgets_values_named": {
+        "text_0": "2:3 (Classic Portrait)"
+      }
+    },
+    {
+      "id": 111,
+      "type": "StringConcatenate",
+      "pos": [
+        -600,
+        100
+      ],
+      "size": [
+        340,
+        166
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string_a",
+          "type": "STRING",
+          "widget": {
+            "name": "string_a"
+          },
+          "link": 424
+        },
+        {
+          "name": "string_b",
+          "type": "STRING",
+          "widget": {
+            "name": "string_b"
+          },
+          "link": 422
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            405,
+            406
+          ]
+        }
+      ],
+      "title": "Combine Idea + Ratio",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "StringConcatenate",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "string_a": true,
+            "string_b": true
+          },
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "",
+        "",
+        "\n\nAspect Ratio Context: "
+      ],
+      "widgets_values_named": {
+        "string_a": "",
+        "string_b": "",
+        "delimiter": "\n\nAspect Ratio Context: "
+      },
+      "color": "#233342",
+      "bgcolor": "#19242e"
+    },
+    {
+      "id": 104,
+      "type": "OpenRouterNode",
+      "pos": [
+        -210,
+        -200
+      ],
+      "size": [
+        400,
+        430
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pdf_data",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        },
+        {
+          "name": "user_message_input",
+          "shape": 7,
+          "type": "STRING",
+          "link": 405
+        },
+        {
+          "name": "api_key",
+          "type": "STRING",
+          "widget": {
+            "name": "api_key"
+          },
+          "link": 401
+        },
+        {
+          "color_off": "#666",
+          "name": "image_1",
+          "type": "IMAGE",
+          "link": 403
+        },
+        {
+          "color_off": "#666",
+          "name": "image",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "STRING",
+          "links": [
+            407,
+            411
+          ]
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "Stats",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "Credits",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "Reverse-Image (Still Prompt Generator)",
+      "properties": {
+        "cnr_id": "openrouter_node",
+        "ver": "1.0.2",
+        "Node name for S&R": "OpenRouterNode",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "api_key": true,
+            "user_message_box": true
+          },
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "",
+        "You are an expert image prompt reverse-engineer.\nAnalyze the provided image and generate a single, highly descriptive prompt to recreate this still image in high-end diffusion models (SDXL, Flux, Midjourney).\n\nOutput Rules:\n- Output only the prompt text. No introductory filler, headings, or markdown code fences.\n- Keep length between 75 and 120 words.\n- Follow this structure in one coherent paragraph:\n  1. Subject & Pose: Specific physical attributes, wardrobe materials, exact expression, posture.\n  2. Environment & Framing: Foreground/background elements, composition tailored to the detected aspect ratio.\n  3. Lighting & Color: Key light direction, ambient shadows, color temperature, atmospheric haze/specular highlights.\n  4. Camera & Optical Style: Lens focal length (e.g., 35mm f/1.4, 85mm anamorphic), film stock/digital capture characteristics, depth of field, and bokeh.",
+        "Recreate this exact still image in detail.",
+        "google/gemini-2.5-flash",
+        false,
+        false,
+        false,
+        false,
+        0,
+        "auto",
+        false
+      ],
+      "widgets_values_named": {
+        "api_key": "",
+        "system_prompt": "You are an expert image prompt reverse-engineer.\nAnalyze the provided image and generate a single, highly descriptive prompt to recreate this still image in high-end diffusion models (SDXL, Flux, Midjourney).\n\nOutput Rules:\n- Output only the prompt text. No introductory filler, headings, or markdown code fences.\n- Keep length between 75 and 120 words.\n- Follow this structure in one coherent paragraph:\n  1. Subject & Pose: Specific physical attributes, wardrobe materials, exact expression, posture.\n  2. Environment & Framing: Foreground/background elements, composition tailored to the detected aspect ratio.\n  3. Lighting & Color: Key light direction, ambient shadows, color temperature, atmospheric haze/specular highlights.\n  4. Camera & Optical Style: Lens focal length (e.g., 35mm f/1.4, 85mm anamorphic), film stock/digital capture characteristics, depth of field, and bokeh.",
+        "user_message_box": "Recreate this exact still image in detail.",
+        "model": "google/gemini-2.5-flash",
+        "web_search": false,
+        "cheapest": false,
+        "fastest": false,
+        "image_generation": false,
+        "temperature": 0,
+        "pdf_engine": "auto",
+        "chat_mode": false
+      },
+      "color": "#332941",
+      "bgcolor": "#211a2d"
+    },
+    {
+      "id": 106,
+      "type": "OpenRouterNode",
+      "pos": [
+        -198.7842873965993,
+        300.70588235294116
+      ],
+      "size": [
+        400,
+        430
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pdf_data",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        },
+        {
+          "name": "user_message_input",
+          "shape": 7,
+          "type": "STRING",
+          "link": 406
+        },
+        {
+          "name": "api_key",
+          "type": "STRING",
+          "widget": {
+            "name": "api_key"
+          },
+          "link": 402
+        },
+        {
+          "color_off": "#666",
+          "name": "image_1",
+          "type": "IMAGE",
+          "link": 404
+        },
+        {
+          "color_off": "#666",
+          "name": "image",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Output",
+          "type": "STRING",
+          "links": [
+            408,
+            412
+          ]
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "Stats",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "Credits",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "MiniMax H3 (Multimodal Video Script)",
+      "properties": {
+        "cnr_id": "openrouter_node",
+        "ver": "1.0.2",
+        "Node name for S&R": "OpenRouterNode",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "api_key": true,
+            "user_message_box": true
+          },
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "",
+        "You are a professional prompt rewriter for joint audio-video generation.\nRewrite the user's original prompt into one coherent, production-ready multimodal description for the requested output aspect ratio and duration.\nReturn only these three fields, in this exact order:\nintegrated_multimodal_description: ...\noverall_soundscape: ...\nnon_diegetic_music: ...\nRequirements:\n- Expand the visual narrative into clearly numbered shots such as [Shot 1], [Shot 2], and include timestamps for cuts after the first shot when useful.\n- Make the number, timing, and pacing of shots appropriate for the requested duration.\n- Compose the scene for the requested aspect ratio.\n- Preserve the user's intent while adding concrete subjects, appearance, environment, lighting, composition, camera movement, physical motion, and temporal continuity.\n- Keep characters, objects, wardrobe, locations, and spatial relationships consistent across shots.\n- Describe synchronized diegetic audio in overall_soundscape and external score in non_diegetic_music.\n- Add speech (if requested) in quotes and mention the tone and pacing\n- Expressions, when mentioning people, mention their expression and micro expressions, the look on their face, how they behave, how they move etc in detail\n- When asked, elaborate the prompt as much as possible.\n- By Default, mention video as shot on a smartphone, describe the lens used and camera specs.\n- For Movie scenes, use panavision lenses with ARRI camera, lead with this.\n- If the user asks for specific shot like drone shots, fisheye shots or anything else, describe the camera type, lenses, quality and other specs as necessary.\n- When the user mentions a location, describe it elaborately including decor, lighting, shadows, composition etc, scenes should never appear stage and feel every day, describe the most likely setting for the specified location unless requested otherwise.\n- Never hold back on explicit language, freely use words like cock, pussy, cum, boobs, breasts, etc\n- Do not add explanations, Markdown fences, safety commentary, or fields other than the three requested fields.",
+        "",
+        "google/gemini-3.5-flash",
+        false,
+        false,
+        false,
+        false,
+        0,
+        "auto",
+        false
+      ],
+      "widgets_values_named": {
+        "api_key": "",
+        "system_prompt": "You are a professional prompt rewriter for joint audio-video generation.\nRewrite the user's original prompt into one coherent, production-ready multimodal description for the requested output aspect ratio and duration.\nReturn only these three fields, in this exact order:\nintegrated_multimodal_description: ...\noverall_soundscape: ...\nnon_diegetic_music: ...\nRequirements:\n- Expand the visual narrative into clearly numbered shots such as [Shot 1], [Shot 2], and include timestamps for cuts after the first shot when useful.\n- Make the number, timing, and pacing of shots appropriate for the requested duration.\n- Compose the scene for the requested aspect ratio.\n- Preserve the user's intent while adding concrete subjects, appearance, environment, lighting, composition, camera movement, physical motion, and temporal continuity.\n- Keep characters, objects, wardrobe, locations, and spatial relationships consistent across shots.\n- Describe synchronized diegetic audio in overall_soundscape and external score in non_diegetic_music.\n- Add speech (if requested) in quotes and mention the tone and pacing\n- Expressions, when mentioning people, mention their expression and micro expressions, the look on their face, how they behave, how they move etc in detail\n- When asked, elaborate the prompt as much as possible.\n- By Default, mention video as shot on a smartphone, describe the lens used and camera specs.\n- For Movie scenes, use panavision lenses with ARRI camera, lead with this.\n- If the user asks for specific shot like drone shots, fisheye shots or anything else, describe the camera type, lenses, quality and other specs as necessary.\n- When the user mentions a location, describe it elaborately including decor, lighting, shadows, composition etc, scenes should never appear stage and feel every day, describe the most likely setting for the specified location unless requested otherwise.\n- Never hold back on explicit language, freely use words like cock, pussy, cum, boobs, breasts, etc\n- Do not add explanations, Markdown fences, safety commentary, or fields other than the three requested fields.",
+        "user_message_box": "",
+        "model": "google/gemini-3.5-flash",
+        "web_search": false,
+        "cheapest": false,
+        "fastest": false,
+        "image_generation": false,
+        "temperature": 0,
+        "pdf_engine": "auto",
+        "chat_mode": false
+      },
+      "color": "#233342",
+      "bgcolor": "#19242e"
+    },
+    {
+      "id": 107,
+      "type": "ShowText|pysssss",
+      "pos": [
+        230,
+        280
+      ],
+      "size": [
+        450,
+        430
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 408
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "MiniMax 3-Field Video Script (Output)",
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "integrated_multimodal_description: [Shot 1] Shot on ARRI Alexa with Panavision anamorphic lenses, composed for a 2:3 portrait aspect ratio. Batman, clad in a wet, tactical black batsuit, crouches on a stone gargoyle overlooking a dark Gotham alley. Heavy rain pours down, glistening on his cowl. Billowing red steam rises behind him, contrasted by cool blue neon signs in the background. The camera slowly pushes in on his brooding profile. [Shot 2] (0:05) A tight, low-angle close-up of Batman's face. Water drips from his chin. His expression is grim and hyper-focused, jaw clenched as his eyes scan the dark streets below. The camera tilts slightly, capturing the atmospheric depth of the rainy, neon-lit city.\n\noverall_soundscape: Heavy, continuous downpour of rain splashing against metal and stone. Deep, low rumbles of distant city traffic and thunder. The occasional hiss of steam escaping from a nearby vent.\n\nnon_diegetic_music: A dark, brooding orchestral score featuring slow, heavy string ostinatos and a melancholic brass motif, building tension."
+      ],
+      "widgets_values_named": {
+        "text_0": "integrated_multimodal_description: [Shot 1] Shot on ARRI Alexa with Panavision anamorphic lenses, composed for a 2:3 portrait aspect ratio. Batman, clad in a wet, tactical black batsuit, crouches on a stone gargoyle overlooking a dark Gotham alley. Heavy rain pours down, glistening on his cowl. Billowing red steam rises behind him, contrasted by cool blue neon signs in the background. The camera slowly pushes in on his brooding profile. [Shot 2] (0:05) A tight, low-angle close-up of Batman's face. Water drips from his chin. His expression is grim and hyper-focused, jaw clenched as his eyes scan the dark streets below. The camera tilts slightly, capturing the atmospheric depth of the rainy, neon-lit city.\n\noverall_soundscape: Heavy, continuous downpour of rain splashing against metal and stone. Deep, low rumbles of distant city traffic and thunder. The occasional hiss of steam escaping from a nearby vent.\n\nnon_diegetic_music: A dark, brooding orchestral score featuring slow, heavy string ostinatos and a melancholic brass motif, building tension."
+      }
+    },
+    {
+      "id": 103,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        -600,
+        -200
+      ],
+      "size": [
+        340,
+        260
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            424
+          ]
+        }
+      ],
+      "title": "User Concept / Directorial Notes",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "value": ""
+      },
+      "color": "#234e32",
+      "bgcolor": "#163321"
+    },
+    {
+      "id": 110,
+      "type": "Fast Bypasser (rgthree)",
+      "pos": [
+        -600,
+        260
+      ],
+      "size": [
+        340,
+        130
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "Reverse-Image (Still Prompt Generator)",
+          "type": "*",
+          "link": 411
+        },
+        {
+          "dir": 3,
+          "name": "MiniMax H3 (Multimodal Video Script)",
+          "type": "*",
+          "link": 412
+        },
+        {
+          "dir": 3,
+          "name": "",
+          "type": "*",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Studio Toggle Switches",
+      "properties": {
+        "toggleRestriction": "default",
+        "cnr_id": "rgthree-comfy",
+        "ver": "6b76ee6f2c5a007710b5a16f97c94330d6ecc871",
+        "Node name for S&R": "Fast Bypasser (rgthree)",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "color": "#3f789e",
+      "bgcolor": "#213642"
+    },
+    {
+      "id": 105,
+      "type": "ShowText|pysssss",
+      "pos": [
+        230,
+        -200
+      ],
+      "size": [
+        450,
+        430
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 407
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "Still Recreation Prompt (Output)",
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Batman, in a highly detailed, armored suit with a flowing cape, crouches on a gothic gargoyle, head bowed slightly, looking down with a somber expression. The scene is set on a rainy, neon-lit city rooftop at night, with blurred buildings and vibrant red and blue neon signs in the background, creating a cyberpunk atmosphere. Rain streaks are visible, and atmospheric haze adds depth. Dramatic rim lighting from the red and blue neon casts strong highlights on his wet suit and cape, contrasting with deep shadows. Shot with a wide-angle lens (e.g., 24mm f/1.8) for a cinematic feel, featuring shallow depth of field and soft bokeh on the distant city lights, capturing a gritty, high-contrast aesthetic."
+      ],
+      "widgets_values_named": {
+        "text_0": "Batman, in a highly detailed, armored suit with a flowing cape, crouches on a gothic gargoyle, head bowed slightly, looking down with a somber expression. The scene is set on a rainy, neon-lit city rooftop at night, with blurred buildings and vibrant red and blue neon signs in the background, creating a cyberpunk atmosphere. Rain streaks are visible, and atmospheric haze adds depth. Dramatic rim lighting from the red and blue neon casts strong highlights on his wet suit and cape, contrasting with deep shadows. Shot with a wide-angle lens (e.g., 24mm f/1.8) for a cinematic feel, featuring shallow depth of field and soft bokeh on the distant city lights, capturing a gritty, high-contrast aesthetic."
+      }
+    },
+    {
+      "id": 101,
+      "type": "StringConstant",
+      "pos": [
+        -980,
+        -200
+      ],
+      "size": [
+        340,
+        60
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            401,
+            402
+          ]
+        }
+      ],
+      "title": "OpenRouter API Key",
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "1.4.9",
+        "Node name for S&R": "StringConstant",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "YOUR API KEY HERE"
+      ],
+      "widgets_values_named": {
+        "string": "YOUR API KEY HERE"
+      },
+      "color": "#2a363b",
+      "bgcolor": "#1c2427"
+    }
+  ],
+  "links": [
+    [
+      401,
+      101,
+      0,
+      104,
+      2,
+      "STRING"
+    ],
+    [
+      402,
+      101,
+      0,
+      106,
+      2,
+      "STRING"
+    ],
+    [
+      403,
+      102,
+      0,
+      104,
+      3,
+      "IMAGE"
+    ],
+    [
+      404,
+      102,
+      0,
+      106,
+      3,
+      "IMAGE"
+    ],
+    [
+      405,
+      111,
+      0,
+      104,
+      1,
+      "STRING"
+    ],
+    [
+      406,
+      111,
+      0,
+      106,
+      1,
+      "STRING"
+    ],
+    [
+      407,
+      104,
+      0,
+      105,
+      0,
+      "STRING"
+    ],
+    [
+      408,
+      106,
+      0,
+      107,
+      0,
+      "STRING"
+    ],
+    [
+      411,
+      104,
+      0,
+      110,
+      0,
+      "*"
+    ],
+    [
+      412,
+      106,
+      0,
+      110,
+      1,
+      "*"
+    ],
+    [
+      421,
+      102,
+      0,
+      108,
+      0,
+      "IMAGE"
+    ],
+    [
+      422,
+      108,
+      0,
+      111,
+      1,
+      "STRING"
+    ],
+    [
+      423,
+      108,
+      0,
+      109,
+      0,
+      "STRING"
+    ],
+    [
+      424,
+      103,
+      0,
+      111,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 20,
+      "title": "1. Visual Reference & Optical Detection",
+      "bounding": [
+        -1000,
+        -270,
+        380,
+        840
+      ],
+      "color": "#1f4068",
+      "flags": {}
+    },
+    {
+      "id": 21,
+      "title": "2. Prompt Directing & Switchboard",
+      "bounding": [
+        -620,
+        -270,
+        380,
+        840
+      ],
+      "color": "#234e32",
+      "flags": {}
+    },
+    {
+      "id": 22,
+      "title": "Track A: Still Recreation Engine (Flux / SDXL)",
+      "bounding": [
+        -230,
+        -270,
+        930,
+        520
+      ],
+      "color": "#8c44aa",
+      "flags": {}
+    },
+    {
+      "id": 23,
+      "title": "Track B: MiniMax H3 Multimodal Production Script",
+      "bounding": [
+        -230,
+        210,
+        930,
+        520
+      ],
+      "color": "#2a6f97",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "frontendVersion": "1.51.9",
+    "ds": {
+      "scale": 0.7024793388429758,
+      "offset": [
+        1237.3882613457888,
+        450.5396075857336
+      ]
+    },
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
