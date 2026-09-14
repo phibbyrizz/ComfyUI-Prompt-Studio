@@ -30,6 +30,7 @@ Install these via the **ComfyUI Manager** before loading the workflow:
 | [ComfyUI-KJNodes](https://github.com/kijai/ComfyUI-KJNodes) | `StringConstant` |
 | [rgthree-comfy](https://github.com/rgthree/rgthree-comfy) | `Fast Bypasser (rgthree)` |
 | [openrouter_node](https://github.com/bmad4ever/comfyui-openrouter) | `OpenRouterNode` |
+OpenRouter account required: Prompt Studio uses OpenRouter for AI inference. API usage may incur charges depending on the model you select and your OpenRouter account.
 
 *(Core nodes `LoadImage`, `StringConcatenate`, and `PrimitiveStringMultiline` are included natively with ComfyUI.)*
 
