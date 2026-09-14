@@ -16,7 +16,7 @@ Prompt Studio analyzes your reference image, detects its aspect ratio, and combi
   - **Track A (Still Prompt Generator):** Deconstructs subject, lighting, optics, and framing into single-paragraph diffusion prompts.
   - **Track B (MiniMax H3 Video Script):** Outputs a strict 3-field production script with numbered shots, timestamps, camera motion, diegetic soundscapes, and musical cues.
 - **Switchboard Control:** Built-in fast bypass switches to run either engine independently without breaking graph connections.
-- **Privacy First:** Centralized key input field designed to keep credentials decoupled and sanitized.
+- **Privacy First:**API Key Safety: OpenRouter credentials are entered through a centralized key input. Never share or publish a workflow after entering your API key without first removing it.
 
 ---
 
