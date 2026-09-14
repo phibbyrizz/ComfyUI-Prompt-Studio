@@ -17,6 +17,7 @@ Prompt Studio analyzes your reference image, detects its aspect ratio, and combi
   - **Track B (MiniMax H3 Video Script):** Outputs a strict 3-field production script with numbered shots, timestamps, camera motion, diegetic soundscapes, and musical cues. Video Direction is independent from Still Direction, so either track can be directed separately.
 - **Switchboard Control:** Built-in fast bypass switches to run either engine independently without breaking graph connections.
 - **Privacy First:**API Key Safety: OpenRouter credentials are entered through a centralized key input. Never share or publish a workflow after entering your API key without first removing it.
+- **Target Model:** Choose the prompt-writing style for the still-image track by entering Generic, FLUX, Krea 2, or SDXL. Each option changes how Prompt Studio structures and describes the final image prompt rather than simply appending the model name.
 
 ---
 
