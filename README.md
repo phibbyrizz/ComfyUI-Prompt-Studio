@@ -37,7 +37,7 @@ Install these via the **ComfyUI Manager** before loading the workflow:
 
 ## Quick Start
 
-1. Download `prompt_studio_v3.json` (or drag the sample workflow image into ComfyUI).
+1. Load the workflow: Open prompt_studio_v3.json in ComfyUI using Workflow → Open or drag the .json file directly into the ComfyUI window.
 2. Insert your [OpenRouter API Key](https://openrouter.ai/settings/keys) into the **OpenRouter API Key** node (`StringConstant`).
 3. Load a target image into **Reference Image Input**.
 4. *(Optional)* Add directorial guidelines, character names, or mood constraints into **User Concept / Directorial Notes**.
