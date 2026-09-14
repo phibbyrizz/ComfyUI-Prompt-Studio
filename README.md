@@ -1,10 +1,12 @@
 # ComfyUI Prompt Studio Suite v3
+
 ![Prompt Studio Suite v3](workflow_preview.png)
 
-An intelligent reverse-engineering and multi-modal prompt generation workbench for ComfyUI. 
+**Turn a reference image and a simple idea into a production-ready image prompt or MiniMax H3 video script — directly inside ComfyUI.**
 
-Analyze reference imagery to generate production-grade still prompts (Flux, SDXL, Midjourney) or synthesize structured multi-shot script blocks for **MiniMax H3** with native audio/soundscape cues.
+Prompt Studio analyzes your reference image, detects its aspect ratio, and combines that visual context with your creative direction. Use it to reverse-engineer detailed still-image prompts or build structured MiniMax H3 video scripts with shots, camera direction, dialogue, soundscape, and music cues.
 
+---
 ---
 
 ## Features
