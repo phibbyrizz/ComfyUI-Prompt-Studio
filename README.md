@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/prompt-studio-hero.png" alt="Prompt Studio for ComfyUI" width="100%">
+</p>
+
 # ComfyUI Prompt Studio Suite v3
 
 ![Prompt Studio Suite v3](workflow_preview.png)
