@@ -13,8 +13,8 @@ Prompt Studio analyzes your reference image, detects its aspect ratio, and combi
 
 - **Automatic Aspect Ratio Detection:** Inspects your reference image dimensions and injects dynamic composition parameters directly into the prompt context.
 - **Dual Engine Architecture:**
-  - **Track A (Still Prompt Generator):** Deconstructs subject, lighting, optics, and framing into single-paragraph diffusion prompts.
-  - **Track B (MiniMax H3 Video Script):** Outputs a strict 3-field production script with numbered shots, timestamps, camera motion, diegetic soundscapes, and musical cues.
+  - **Track A (Still Prompt Studio):** Leave the Still Direction box blank to recreate the reference image as faithfully as possible, or add creative direction to modify the scene while preserving useful visual context from the reference.
+  - **Track B (MiniMax H3 Video Script):** Outputs a strict 3-field production script with numbered shots, timestamps, camera motion, diegetic soundscapes, and musical cues. Video Direction is independent from Still Direction, so either track can be directed separately.
 - **Switchboard Control:** Built-in fast bypass switches to run either engine independently without breaking graph connections.
 - **Privacy First:**API Key Safety: OpenRouter credentials are entered through a centralized key input. Never share or publish a workflow after entering your API key without first removing it.
 
