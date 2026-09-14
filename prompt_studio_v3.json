@@ -1,6 +1,6 @@
 {
   "id": "prompt-studio-suite-v3",
-  "revision": 0,
+  "revision": 3,
   "last_node_id": 220,
   "last_link_id": 435,
   "nodes": [
@@ -82,7 +82,8 @@
           "type": "STRING",
           "links": [
             422,
-            423
+            423,
+            426
           ]
         },
         {
@@ -172,11 +173,11 @@
       "type": "StringConcatenate",
       "pos": [
         -600,
-        100
+        170
       ],
       "size": [
         340,
-        166
+        120
       ],
       "flags": {},
       "order": 4,
@@ -204,12 +205,11 @@
           "name": "STRING",
           "type": "STRING",
           "links": [
-            405,
-            406
+            405
           ]
         }
       ],
-      "title": "Combine Idea + Ratio",
+      "title": "Still Direction + Ratio",
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.30.1",
@@ -309,7 +309,7 @@
           "links": null
         }
       ],
-      "title": "Reverse-Image (Still Prompt Generator)",
+      "title": "Still Prompt Studio (RECREATE / DIRECT)",
       "properties": {
         "cnr_id": "openrouter_node",
         "ver": "1.0.2",
@@ -325,8 +325,8 @@
       },
       "widgets_values": [
         "",
-        "You are an expert image prompt reverse-engineer.\nAnalyze the provided image and generate a single, highly descriptive prompt to recreate this still image in high-end diffusion models (SDXL, Flux, Midjourney).\n\nOutput Rules:\n- Output only the prompt text. No introductory filler, headings, or markdown code fences.\n- Keep length between 75 and 120 words.\n- Follow this structure in one coherent paragraph:\n  1. Subject & Pose: Specific physical attributes, wardrobe materials, exact expression, posture.\n  2. Environment & Framing: Foreground/background elements, composition tailored to the detected aspect ratio.\n  3. Lighting & Color: Key light direction, ambient shadows, color temperature, atmospheric haze/specular highlights.\n  4. Camera & Optical Style: Lens focal length (e.g., 35mm f/1.4, 85mm anamorphic), film stock/digital capture characteristics, depth of field, and bokeh.",
-        "Recreate this exact still image in detail.",
+        "You are an expert image prompt reverse-engineer and creative director.\n\nAnalyze the provided reference image and the user's Creative Direction, then generate one production-ready still-image prompt for high-end diffusion models (SDXL, Flux, Midjourney).\n\nMODE SELECTION:\n- RECREATE mode: If Creative Direction is blank, empty, or contains no meaningful instruction, recreate the reference image as accurately as possible.\n- DIRECT mode: If Creative Direction contains a meaningful instruction, use the reference image as visual context while following the user's requested changes. Preserve relevant subject identity, visual characteristics, composition, or style from the reference unless the direction explicitly changes them. Do not ignore the user's direction merely because it differs from the reference.\n\nThe user message may also include an automatically detected Aspect Ratio Context. Use it when composing the scene.\n\nOutput Rules:\n- Output only the final prompt text. No introductory filler, headings, mode labels, explanations, or markdown code fences.\n- Keep length between 75 and 120 words.\n- Write one coherent paragraph.\n- Include, as appropriate:\n  1. Subject & Pose: specific physical attributes, wardrobe/materials, expression, posture, and requested changes.\n  2. Environment & Framing: foreground/background elements and composition tailored to the detected aspect ratio.\n  3. Lighting & Color: key light direction, ambient shadows, color temperature, atmosphere, reflections, and highlights.\n  4. Camera & Optical Style: lens/focal length, aperture when useful, capture/film characteristics, depth of field, and bokeh.\n- Do not shy away from explicit anatomical or sexual terminology when it is necessary to accurately describe the reference image or the user's requested direction. Use direct, precise language rather than euphemisms.\n- In RECREATE mode, prioritize faithful visual reconstruction.\n- In DIRECT mode, prioritize the user's creative direction while retaining useful visual continuity from the reference.",
+        "",
         "google/gemini-2.5-flash",
         false,
         false,
@@ -338,8 +338,8 @@
       ],
       "widgets_values_named": {
         "api_key": "",
-        "system_prompt": "You are an expert image prompt reverse-engineer.\nAnalyze the provided image and generate a single, highly descriptive prompt to recreate this still image in high-end diffusion models (SDXL, Flux, Midjourney).\n\nOutput Rules:\n- Output only the prompt text. No introductory filler, headings, or markdown code fences.\n- Keep length between 75 and 120 words.\n- Follow this structure in one coherent paragraph:\n  1. Subject & Pose: Specific physical attributes, wardrobe materials, exact expression, posture.\n  2. Environment & Framing: Foreground/background elements, composition tailored to the detected aspect ratio.\n  3. Lighting & Color: Key light direction, ambient shadows, color temperature, atmospheric haze/specular highlights.\n  4. Camera & Optical Style: Lens focal length (e.g., 35mm f/1.4, 85mm anamorphic), film stock/digital capture characteristics, depth of field, and bokeh.",
-        "user_message_box": "Recreate this exact still image in detail.",
+        "system_prompt": "You are an expert image prompt reverse-engineer and creative director.\n\nAnalyze the provided reference image and the user's Creative Direction, then generate one production-ready still-image prompt for high-end diffusion models (SDXL, Flux, Midjourney).\n\nMODE SELECTION:\n- RECREATE mode: If Creative Direction is blank, empty, or contains no meaningful instruction, recreate the reference image as accurately as possible.\n- DIRECT mode: If Creative Direction contains a meaningful instruction, use the reference image as visual context while following the user's requested changes. Preserve relevant subject identity, visual characteristics, composition, or style from the reference unless the direction explicitly changes them. Do not ignore the user's direction merely because it differs from the reference.\n\nThe user message may also include an automatically detected Aspect Ratio Context. Use it when composing the scene.\n\nOutput Rules:\n- Output only the final prompt text. No introductory filler, headings, mode labels, explanations, or markdown code fences.\n- Keep length between 75 and 120 words.\n- Write one coherent paragraph.\n- Include, as appropriate:\n  1. Subject & Pose: specific physical attributes, wardrobe/materials, expression, posture, and requested changes.\n  2. Environment & Framing: foreground/background elements and composition tailored to the detected aspect ratio.\n  3. Lighting & Color: key light direction, ambient shadows, color temperature, atmosphere, reflections, and highlights.\n  4. Camera & Optical Style: lens/focal length, aperture when useful, capture/film characteristics, depth of field, and bokeh.\n- Do not shy away from explicit anatomical or sexual terminology when it is necessary to accurately describe the reference image or the user's requested direction. Use direct, precise language rather than euphemisms.\n- In RECREATE mode, prioritize faithful visual reconstruction.\n- In DIRECT mode, prioritize the user's creative direction while retaining useful visual continuity from the reference.",
+        "user_message_box": "",
         "model": "google/gemini-2.5-flash",
         "web_search": false,
         "cheapest": false,
@@ -524,7 +524,7 @@
       ],
       "size": [
         340,
-        260
+        170
       ],
       "flags": {},
       "order": 1,
@@ -539,7 +539,7 @@
           ]
         }
       ],
-      "title": "User Concept / Directorial Notes",
+      "title": "Still Direction (blank = RECREATE)",
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.30.1",
@@ -564,7 +564,7 @@
       "type": "Fast Bypasser (rgthree)",
       "pos": [
         -600,
-        260
+        500
       ],
       "size": [
         340,
@@ -645,7 +645,7 @@
           "links": null
         }
       ],
-      "title": "Still Recreation Prompt (Output)",
+      "title": "Still Production Prompt (Output)",
       "properties": {
         "cnr_id": "comfyui-custom-scripts",
         "ver": "1.2.5",
@@ -707,6 +707,118 @@
       },
       "color": "#2a363b",
       "bgcolor": "#1c2427"
+    },
+    {
+      "id": 112,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        -600,
+        -5
+      ],
+      "size": [
+        340,
+        150
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            425
+          ]
+        }
+      ],
+      "title": "Video Direction",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "value": ""
+      },
+      "color": "#234e32",
+      "bgcolor": "#163321"
+    },
+    {
+      "id": 113,
+      "type": "StringConcatenate",
+      "pos": [
+        -600,
+        315
+      ],
+      "size": [
+        340,
+        150
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string_a",
+          "type": "STRING",
+          "widget": {
+            "name": "string_a"
+          },
+          "link": 425
+        },
+        {
+          "name": "string_b",
+          "type": "STRING",
+          "widget": {
+            "name": "string_b"
+          },
+          "link": 426
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            406
+          ]
+        }
+      ],
+      "title": "Video Direction + Ratio",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "StringConcatenate",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "string_a": true,
+            "string_b": true
+          },
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "",
+        "",
+        "\n\nAspect Ratio Context: "
+      ],
+      "widgets_values_named": {
+        "string_a": "",
+        "string_b": "",
+        "delimiter": "\n\nAspect Ratio Context: "
+      },
+      "color": "#233342",
+      "bgcolor": "#19242e"
     }
   ],
   "links": [
@@ -747,14 +859,6 @@
       111,
       0,
       104,
-      1,
-      "STRING"
-    ],
-    [
-      406,
-      111,
-      0,
-      106,
       1,
       "STRING"
     ],
@@ -821,6 +925,30 @@
       111,
       0,
       "STRING"
+    ],
+    [
+      425,
+      112,
+      0,
+      113,
+      0,
+      "STRING"
+    ],
+    [
+      426,
+      108,
+      0,
+      113,
+      1,
+      "STRING"
+    ],
+    [
+      406,
+      113,
+      0,
+      106,
+      1,
+      "STRING"
     ]
   ],
   "groups": [
@@ -838,19 +966,19 @@
     },
     {
       "id": 21,
-      "title": "2. Prompt Directing & Switchboard",
+      "title": "2. Still / Video Direction & Switchboard",
       "bounding": [
         -620,
         -270,
         380,
-        840
+        930
       ],
       "color": "#234e32",
       "flags": {}
     },
     {
       "id": 22,
-      "title": "Track A: Still Recreation Engine (Flux / SDXL)",
+      "title": "Track A: Still Prompt Studio (RECREATE / DIRECT)",
       "bounding": [
         -230,
         -270,
